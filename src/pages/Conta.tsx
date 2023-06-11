@@ -38,8 +38,8 @@ if(userData && id !== userData.id){
 }
 
     return (
-        <Center>
-            <SimpleGrid columns={2} spacing={8} paddingTop={16} paddingBottom={16}>
+        <Center height='87vh'>
+            <SimpleGrid columns={2} spacing={8}>
                 {
                     userData === undefined || userData === null ? (
                     <Center>
