@@ -8,7 +8,7 @@ export const Footer = () => {
             color={'#fff'} 
             display={'flex'} 
             flexDirection={'column'} 
-            alignContent={'flex-end'}
+            alignContent={'space-between'}
             height={'3rem'}
             >
             <Box>

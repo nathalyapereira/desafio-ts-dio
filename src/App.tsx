@@ -1,28 +1,30 @@
-import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
+import { ChakraProvider } from '@chakra-ui/react';
 import { Layout } from './components/Layout';
-import { 
-  Center,
-  ChakraProvider,
-  Input,
-  Grid,
-  GridItem,
-  Box,
-  Button
- } from '@chakra-ui/react'
-import { login } from './services/login';
-import { Card } from './components/Card';
+import { AppContextProvider } from './components/AppContext';
+import MainRoutes from './routes';
+import {  createLocalStorage, getAllLocalStorage } from './services/storage';
+
 
 
 function App() {
+
+  !getAllLocalStorage() && createLocalStorage()
+
   return (
-    <ChakraProvider >
-      <Box width={'100%'} height={'100%'}>
-        <Layout >
-      <Card />
-      </Layout>
-      </Box>
-      
-    </ChakraProvider>
+    <>
+  <BrowserRouter>
+    <AppContextProvider>
+      <ChakraProvider>
+        <Layout>
+          <MainRoutes />
+        </Layout>
+      </ChakraProvider>
+    </AppContextProvider>
+  </BrowserRouter>
+   
+</>
+
   );
 }
 
